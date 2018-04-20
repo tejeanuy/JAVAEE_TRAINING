@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 //annotation
 @WebServlet({"/LoginValidator", "/LoginServlet"})
@@ -26,6 +27,8 @@ public class LoginValidator extends HttpServlet {
 		PrintWriter write = response.getWriter();
 		write.println("<h1>" + contextparam + "</h1>");
 		if(userObj.login()) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", userObj);
 			RequestDispatcher dispatch = request.getRequestDispatcher("main.jsp");
 			dispatch.include(request, response);
 			//dispatch.forward(request, response);
