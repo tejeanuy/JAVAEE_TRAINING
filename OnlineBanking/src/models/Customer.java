@@ -88,6 +88,24 @@ public class Customer {
 			return false;
 		}
 	}
+	
+	public boolean validateLogin() {
+		Connector connector = new Connector();
+		try {
+			PreparedStatement ps = connector.getCon().prepareStatement("select count(*) from customer c join bankaccount b on c.id = b.customerid where c.id = ? and b.accountid = ?");
+			ps.setInt(1, id);
+			ps.setString(2, bankaccount.getAccountid());
+			ResultSet set = ps.executeQuery();
+			set.next();
+			int count = set.getInt(1);
+			if(count != 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
 
 

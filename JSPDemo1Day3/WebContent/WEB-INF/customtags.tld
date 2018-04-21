@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+<tlib-version>1.0</tlib-version>
+<short-name>customtagslib</short-name>
+<description>Sample Custom Tag Library</description>
+
+<tag>
+    <name>datetime</name>
+    <tag-class>mytags.DateTime</tag-class>
+    <body-content>empty</body-content>
+    <description>Get the current date and time</description>
+</tag> 
+<tag>
+    <name>sum</name>
+    <tag-class>mytags.GetSum</tag-class>
+    <body-content>empty</body-content>
+    <description>Get the sum of 2 numbers</description>
+    <attribute>
+    <name>num1</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+    <name>num2</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+<tag>
+    <name>namelist</name>
+    <tag-class>mytags.NameList</tag-class>
+    <body-content>JSP</body-content>
+</tag> 
+</taglib>
