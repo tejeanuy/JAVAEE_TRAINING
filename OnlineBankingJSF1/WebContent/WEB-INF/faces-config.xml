@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+	<managed-bean>
+		<managed-bean-name>customer</managed-bean-name>
+		<managed-bean-class>models.Customer</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>bankaccount</property-name>
+			<property-class>models.BankAccount</property-class>
+			<value>#{bankAccount}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>bankAccount</managed-bean-name>
+		<managed-bean-class>models.BankAccount</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>Login</display-name>
+		<from-view-id>/Login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/MainPage.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Login</display-name>
+		<from-view-id>/Login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>customerlist</from-outcome>
+			<to-view-id>/CustomerList.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<validator>
+		<description></description>
+		<display-name>balanceValidator</display-name>
+		<validator-id>balanceValidator</validator-id>
+		<validator-class>validator.BalanceValidator</validator-class>
+	</validator>
+
+</faces-config>
