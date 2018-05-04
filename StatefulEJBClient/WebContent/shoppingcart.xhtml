@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<title>Shopping Cart</title>
+</h:head>
+<body>
+<f:view>
+	<h:form>
+		<h:dataTable value="#{clientEJBBean.cart}" var="cartprod">
+			<h:column>
+				<f:facet name="header">Product ID</f:facet>
+    				#{cartprod.id}
+    		</h:column>
+    		
+			<h:column>
+				<f:facet name="header">Product Name</f:facet>
+    				#{cartprod.prodname}
+    		</h:column>
+
+			<h:column>
+				<f:facet name="header">Price</f:facet>
+    				<h:outputText value="#{cartprod.price}">
+    				<f:convertNumber groupingUsed="true" maxFractionDigits="2"  />
+                </h:outputText>
+    		</h:column>
+		</h:dataTable>
+	<h3>Total Price: #{clientEJBBean.getTotalPrice()} </h3>
+	</h:form>
+	</f:view>
+</body>
+</html>

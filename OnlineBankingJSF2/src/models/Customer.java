@@ -131,7 +131,7 @@ public class Customer {
 			int count = set.getInt(1);
 			if(count != 0) {
 				//code for redirect
-				FacesContext.getCurrentInstance().getExternalContext().redirect("faces/MainPage.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("CustomerList.xhtml");
 				//code for forward
 				//return "MainPage";
 			}

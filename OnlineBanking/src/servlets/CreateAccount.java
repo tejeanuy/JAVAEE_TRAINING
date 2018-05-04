@@ -31,6 +31,7 @@ public class CreateAccount extends HttpServlet {
 		Double balance = Double.parseDouble(request.getParameter("balance"));
 		if (balance < 500) {
 			response.sendRedirect("pages/MainPage.jsp?invalidbalance=true");
+			return;
 		} else {
 			Customer c = new Customer();
 			c.setFirstname(request.getParameter("firstname"));
